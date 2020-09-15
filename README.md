@@ -11,5 +11,5 @@ activity). Appart from these files, there are two folders name "test" and "train
 "subject_test.txt" and "X_train.txt", "y_train.txt", "subject_train.txt" respectively, that stored the full measurements data and other data of
 interest to create a complete daat frame.
 
-The Code Book contains a description of the variable names and an explanation of the code stored in run_analysis.R and used to tidy and analyse
-the data and to provide the resulting data frame (stored in accelerometers_data.txt).
+The CodeBook.md file contains a description of the variable names and an explanation of the code stored in run_analysis.R and used to tidy and 
+analyse the data and to provide the resulting data frame (stored in accelerometers_data.txt).
