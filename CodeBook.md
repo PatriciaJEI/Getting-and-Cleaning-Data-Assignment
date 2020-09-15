@@ -252,9 +252,11 @@ the measures and activity labels and adding one new column to store whether the 
 
 We created the complete data frame and arranged it by subject id.
 
-`global_data <- 
+```
+global_data <- 
         rbind.data.frame(train,test) %>%
-        arrange(SubjectId)`
+        arrange(SubjectId)
+```
 
 We extracted only de columns that refer to mean and standard deviation (apart from the info, which is in the first three 
 columns). We decided to select the columns whose name contains "mean" or "std" in any place. We also replaced the numbers labeling the
