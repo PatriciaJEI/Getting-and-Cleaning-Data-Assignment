@@ -27,6 +27,19 @@ write explicitly in the name of the variables that a mean has been taken, as the
 of a variable says "TimeSignalBodyAcceleration.mean...X" what it is meant to say is "mean of the means of the time signals of the body
 acceleration, in the X axis".
 
+*Some sample data of the resulting data frame (`head(tidy_data[,4])`) would look like this:*
+
+```
+ SubjectId SubjectType  ActivityType       TimeSignalBodyAccelerometer.mean...X
+      <int> <chr>       <chr>                                             <dbl>
+1         1 train       LAYING                                            0.222
+2         1 train       SITTING                                           0.261
+3         1 train       STANDING                                          0.279
+4         1 train       WALKING                                           0.277
+5         1 train       WALKING_DOWNSTAIRS                                0.289
+6         1 train       WALKING_UPSTAIRS                                  0.255
+```
+
 Now we provide the descriptions of the variables:
 
 1. "SubjectId": identification number of the subject, it ranges from 1 to 30.                       
@@ -39,22 +52,25 @@ the subject was making during the measurement.
 same meaning.** The following explanation is an adaptation from the one given in the file features_info.txt, contained in the "UCI HAR Dataset"
 folder provided for the assignment.
 
-In the variables whose name starts with "TimeSignal" was stored data from time domain signals captured at constant rate of 50 Hz.
+In the original data, features were normalized and bounded within [-1,1], which means that, after taking the mean of the desired variables, 
+grouped by subject and activity, the new data still ranges from -1 to 1.
 
-If the name contains the word "Accelerometer", it means that the data was obtained from accelerometer, whereas if it contains the word
+- In the variables whose name starts with "TimeSignal" was stored data from time domain signals captured at constant rate of 50 Hz.
+
+- If the name contains the word "Accelerometer", it means that the data was obtained from accelerometer, whereas if it contains the word
 "Gyroscope", the data was obtained from gyroscopes. The acceleration signal was separated into body and gravity acceleration
 signals, giving variables whose name contains "BodyAccelerometer" or "GravityAccelerometer", using another low pass Butterworth filter
 with a corner frequency of 0.3 Hz.
 
-The body linear acceleration and angular velocity were derived in time to obtain Jerk signals, producing variables whose name contains
+- The body linear acceleration and angular velocity were derived in time to obtain Jerk signals, producing variables whose name contains
 "BodyAccelerometerJerk" or "BodyGyroscopeJerk".
 
-All of the type of variables explained above were measured along the 3 directions X, Y, and Z, and contain in their names the corresponding
+- All of the type of variables explained above were measured along the 3 directions X, Y, and Z, and contain in their names the corresponding
 letter "X", "Y" or "Z" indicating along which axis was measured. The five variables that can be produced with these name combinations
 (grouped in the first five blocks of the list below), where procesed to obtain its magnitud, calculated using the Euclidean norm,
 and producing analogous variables containing the word "Magnitude" instead of the axis (the second five blocks of the list below).
 
-For these time domain signals were taken both the mean and the standard deviation, so the variables containing "mean" or "std" are the
+- For these time domain signals were taken both the mean and the standard deviation, so the variables containing "mean" or "std" are the
 mean or standard deviation, respectively, of the measures indicated by the rest of the name.
 
 4. "TimeSignalBodyAccelerometer.mean...X"                    
@@ -127,11 +143,11 @@ mean or standard deviation, respectively, of the measures indicated by the rest 
 
 ---
 
-It was applied a Fast Fourier Transform to some of the time domain signals, producing variables that start with "FrequencySignal",
+- It was applied a Fast Fourier Transform to some of the time domain signals, producing variables that start with "FrequencySignal",
 which indicates the storing of frequency domain signals. The explanation regarding the terms "Accelerometer", "Gyroscope", "Body",
 "Jerk" and "Magnitude" given for the time domain signals applies also to the frequency domain signals.
 
-For these frequency domain signals were taken the mean, the standard deviation, and the "mean frequency" (weighted average of the
+- For these frequency domain signals were taken the mean, the standard deviation, and the "mean frequency" (weighted average of the
 frequency components to obtain a mean frequency) so the variables containing "mean", "std", or "meanFrequency" at the end of the
 name are the mean, standard deviation, or mean frequency, respectively, of the measures indicated by the rest of the name.
 
@@ -193,7 +209,7 @@ name are the mean, standard deviation, or mean frequency, respectively, of the m
 81. "FrequencySignalBodyGyroscopeJerkMagnitude.std.."              
 82. "FrequencySignalBodyGyroscopeJerkMagnitude.meanFrequency.."
 
-The rest of the variables indicate vectors obtained by averaging the signals in a signal window sample, and contain the word "angle".
+- The rest of the variables indicate vectors obtained by averaging the signals in a signal window sample, and contain the word "angle".
 The explanation regarding the terms "Accelerometer", "Gyroscope", "Body", "Jerk" and "gravity" given for the time domain signals
 applies also to angle variables.
 
